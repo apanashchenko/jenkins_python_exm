@@ -10,7 +10,9 @@ def url():
 
 @pytest.yield_fixture(scope='session', name='driver')
 def driver_factory(url):
-    _driver = webdriver.Chrome(ChromeDriverManager().install())
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
+    _driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
     _driver.get(url)
     yield _driver
     _driver.quit()
