@@ -5,7 +5,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def test_search(driver):
-        driver.get('https://www.google.com')
         wait_until(driver, 30, By.NAME, 'q').is_displayed(), 'Search field not show!'
         search_field = driver.find_element_by_name('q')
         search_field.send_keys('Jenkins' + Keys.RETURN)
