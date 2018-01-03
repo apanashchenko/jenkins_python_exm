@@ -12,11 +12,12 @@ def url():
 def driver_factory(url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--headless')
     # _driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
     # _driver = webdriver.Chrome(chrome_options=chrome_options)
     _driver = webdriver.Chrome('/home/ubuntu/chromedriver', chrome_options=chrome_options)
     _driver.switch_to_alert().accept()
     _driver.get(url)
-    _driver.switch_to_alert().accept()
     yield _driver
     _driver.quit()
