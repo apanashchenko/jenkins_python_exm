@@ -15,6 +15,8 @@ def driver_factory(url):
     # _driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
     # _driver = webdriver.Chrome(chrome_options=chrome_options)
     _driver = webdriver.Chrome('/home/ubuntu/chromedriver', chrome_options=chrome_options)
+    _driver.switch_to_alert().accept()
     _driver.get(url)
+    _driver.switch_to_alert().accept()
     yield _driver
     _driver.quit()
