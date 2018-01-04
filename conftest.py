@@ -12,7 +12,7 @@ def driver_factory(url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
 
-    _driver = webdriver.Chrome( '/home/ubuntu/chromedriver', chrome_options=chrome_options )
+    _driver = webdriver.Chrome('/home/ubuntu/chromedriver', chrome_options=chrome_options)
     _driver.get(url)
     yield _driver
     _driver.quit()
